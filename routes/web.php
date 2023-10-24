@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//Pinche perro trimaldito y malparido Heber.
+//Besos en la cola.
