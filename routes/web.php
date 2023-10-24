@@ -21,3 +21,5 @@ Route::get('/', function () {
 //Pinche perro trimaldito y malparido Heber.
 //Besos en la cola.
 //Besos en el fundido.
+
+//El Jason esta bien pendejo.
