@@ -8,7 +8,7 @@
 
 <li class="nav-item">
     <a href="{{ route('proveedors.index') }}" class="nav-link {{ Request::is('proveedors*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-truck"></i>
         <p>Proveedors</p>
     </a>
 </li>
