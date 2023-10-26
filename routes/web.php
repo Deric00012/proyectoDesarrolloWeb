@@ -23,3 +23,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::resource('proveedors', App\Http\Controllers\proveedorController::class);
+Route::resource('productos', App\Http\Controllers\productoController::class);

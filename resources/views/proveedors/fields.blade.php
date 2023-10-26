@@ -33,6 +33,6 @@
     <div class="form-check">
         {!! Form::hidden('is_active', 0, ['class' => 'form-check-input']) !!}
         {!! Form::checkbox('is_active', 'active', null, ['class' => 'form-check-input']) !!}
-        {!! Form::label('is_active', 'Is Active', ['class' => 'form-check-label']) !!}
+        {!! Form::label('is_active', 'Esta activo', ['class' => 'form-check-label']) !!}
     </div>
 </div>

@@ -12,3 +12,10 @@
         <p>Proveedors</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('productos.index') }}" class="nav-link {{ Request::is('productos*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-boxes"></i>
+        <p>Productos</p>
+    </a>
+</li>
