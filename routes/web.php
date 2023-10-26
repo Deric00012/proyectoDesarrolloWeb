@@ -20,4 +20,9 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+<<<<<<< HEAD
 Auth::routes();
+=======
+//Pinche perro trimaldito y malparido Heber.
+//El Jason esta bien pendejo.
+>>>>>>> d64578e4884d99fd337972c00db7f97d02f47be0
