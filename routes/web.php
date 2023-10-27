@@ -25,3 +25,4 @@ Auth::routes();
 Route::resource('proveedors', App\Http\Controllers\proveedorController::class);
 Route::resource('productos', App\Http\Controllers\productoController::class);
 Route::resource('inventarios', App\Http\Controllers\inventarioController::class);
+Route::resource('clientes', App\Http\Controllers\clienteController::class);
