@@ -5,6 +5,7 @@
             <tr>
                 <th>Id Proveedor</th>
                 <th>Id Producto</th>
+                <th>Precio</th>
                 <th>Stock</th>
                 <th colspan="3">Action</th>
             </tr>
@@ -14,6 +15,7 @@
                 <tr>
                     <td>{{ $inventario->proveedor->nombre }}</td>
                     <td>{{ $inventario->producto->nombre }}</td>
+                    <td>Q {{ $inventario->producto->precio}}</td>
                     <td>{{ $inventario->stock }}</td>
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['inventarios.destroy', $inventario->id], 'method' => 'delete']) !!}

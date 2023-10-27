@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateinventarioRequest;
 use App\Http\Requests\UpdateinventarioRequest;
 use App\Http\Controllers\AppBaseController;
+use App\Models\inventario;
 use App\Models\producto;
 use App\Models\proveedor;
 use App\Repositories\inventarioRepository;
@@ -39,7 +40,7 @@ class inventarioController extends AppBaseController
     {
         $proveedores = proveedor::all();
         $productos = producto::all();
-        return view('inventarios.create',compact('proveedores','productos'));
+        return view('inventarios.create', compact('proveedores', 'productos'));
     }
 
     /**
@@ -47,12 +48,18 @@ class inventarioController extends AppBaseController
      */
     public function store(CreateinventarioRequest $request)
     {
-        $input = $request->all();
+        $buscarInventario = inventario::where('id_proveedor', $request->id_proveedor)
+            ->where('id_producto', $request->id_producto)->first();
 
-        $inventario = $this->inventarioRepository->create($input);
-
-        Flash::success('Inventario saved successfully.');
-
+        if ($buscarInventario) {
+            $buscarInventario->stock = $buscarInventario->stock + $request->stock;
+            $buscarInventario->save();
+            Flash::success('Inventario se actualizo exitosamentes.');
+        } else {
+            $input = $request->all();
+            $inventario = $this->inventarioRepository->create($input);
+            Flash::success('Inventario agregado exitosamente');
+        }
         return redirect(route('inventarios.index'));
     }
 
@@ -87,7 +94,7 @@ class inventarioController extends AppBaseController
 
         $productos = producto::all();
         $proveedores = proveedor::all();
-        return view('inventarios.edit',compact('productos','proveedores'))->with('inventario', $inventario);
+        return view('inventarios.edit', compact('productos', 'proveedores'))->with('inventario', $inventario);
     }
 
     /**
