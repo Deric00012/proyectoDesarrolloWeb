@@ -6,6 +6,7 @@ use App\Http\Requests\CreateventaRequest;
 use App\Http\Requests\UpdateventaRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Models\cliente;
+use App\Models\inventario;
 use App\Models\producto;
 use App\Repositories\ventaRepository;
 use Illuminate\Http\Request;
@@ -39,7 +40,7 @@ class ventaController extends AppBaseController
     {
         $productos = producto::all();
         $clientes = cliente::all();
-        return view('ventas.create',compact('productos','clientes'));
+        return view('ventas.create', compact('productos', 'clientes'));
     }
 
     /**
@@ -47,12 +48,32 @@ class ventaController extends AppBaseController
      */
     public function store(CreateventaRequest $request)
     {
-        
-        $input = $request->all();
+        $cantidadRequerida = $request->cantidad;
+        $cantidadTotal = inventario::where('id_producto', $request->id_producto)
+            ->sum('stock');
 
-        $venta = $this->ventaRepository->create($input);
+        if ($request->cantidad <= $cantidadTotal) {
 
-        Flash::success('Venta saved successfully.');
+            $productos = inventario::where('id_producto', $request->id_producto)->get();
+
+            foreach ($productos as $producto) {
+                if ($producto->stock >= $cantidadRequerida) {
+                    $producto->stock = $producto->stock - $cantidadRequerida;
+                    $producto->save();
+                    break;
+                } else {
+                    $cantidadRequerida = $cantidadRequerida - $producto->stock;
+                    $producto->stock = 0;
+                    $producto->save();
+                }
+            }
+            $input = $request->all();
+            $venta = $this->ventaRepository->create($input);
+            Flash::success('Venta realizada con exito.');
+
+        } else {
+            Flash::error('No se puede despachar esta cantidad de producto. Cantidad maxima ' . $cantidadTotal);
+        }
 
         return redirect(route('ventas.index'));
     }

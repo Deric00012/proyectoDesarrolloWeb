@@ -29,5 +29,14 @@ class venta extends Model
         'id_cliente' => 'required'
     ];
 
+    public function producto()
+    {
+        return $this->belongsTo(producto::class,'id_producto','id');
+    }
+
+    public function cliente()
+    {
+        return $this->belongsTo(proveedor::class,'id_cliente','id');
+    }
     
 }
