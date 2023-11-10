@@ -45,3 +45,5 @@
     {!! Form::label('nit', 'Nit:') !!}
     {!! Form::text('nit', null, ['class' => 'form-control', 'required']) !!}
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
