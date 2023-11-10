@@ -36,7 +36,7 @@ class venta extends Model
 
     public function cliente()
     {
-        return $this->belongsTo(proveedor::class,'id_cliente','id');
+        return $this->belongsTo(cliente::class,'id_cliente','id');
     }
     
 }

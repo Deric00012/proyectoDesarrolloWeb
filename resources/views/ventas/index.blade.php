@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
                        href="{{ route('ventas.create') }}">
-                        Add New
+                        Nueva venta
                     </a>
                 </div>
             </div>

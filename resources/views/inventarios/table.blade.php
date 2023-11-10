@@ -3,8 +3,8 @@
         <table class="table" id="inventarios-table">
             <thead>
             <tr>
-                <th>Id Proveedor</th>
-                <th>Id Producto</th>
+                <th>Proveedor</th>
+                <th>Producto</th>
                 <th>Precio</th>
                 <th>Stock</th>
                 <th colspan="3">Action</th>

@@ -49,10 +49,12 @@
         @endforeach
     </select>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     $(document).ready(function() {
         $("#cantidad").on("keyup", function() {
+            console.log("hola");
             var valorInput = $(this).val();
             var selectElement = document.getElementById("id_producto"); 
             var selectedOption = selectElement.options[selectElement.selectedIndex];
@@ -64,4 +66,3 @@
     });
 </script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

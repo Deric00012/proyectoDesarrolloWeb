@@ -16,7 +16,7 @@
                     <td>{{ $venta->producto->nombre }}</td>
                     <td>{{ $venta->cantidad }}</td>
                     <td>{{ $venta->fecha }}</td>
-                    <td>{{ $venta->cliente->nombre }}</td>
+                    <td>{{ $venta->cliente->nombre }} {{ $venta->cliente->apellido }}</td>
                     <td style="width: 120px">
                         <a href="{{ route('ventas.show', [$venta->id]) }}" class='btn btn-default btn-xs'>
                             <i class="far fa-eye"></i>

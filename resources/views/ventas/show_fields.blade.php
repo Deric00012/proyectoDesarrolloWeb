@@ -1,7 +1,7 @@
 <!-- Id Producto Field -->
 <div class="col-sm-12">
     {!! Form::label('id_producto', 'Id Producto:') !!}
-    <p>{{ $venta->id_producto }}</p>
+    <p>{{ $venta->producto->nombre }}</p>
 </div>
 
 <!-- Cantidad Field -->
@@ -19,7 +19,7 @@
 <!-- Id Cliente Field -->
 <div class="col-sm-12">
     {!! Form::label('id_cliente', 'Id Cliente:') !!}
-    <p>{{ $venta->id_cliente }}</p>
+    <p>{{ $venta->cliente->nombre }} {{ $venta->cliente->apellido }}</p>
 </div>
 
 <!-- Created At Field -->
