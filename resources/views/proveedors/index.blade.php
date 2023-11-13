@@ -6,10 +6,10 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Proveedores</h1>
+                    <a class="btn btn-primary" href="{{ route('imprimirProveedores') }}">Export to PDF</a>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('proveedors.create') }}">
+                    <a class="btn btn-primary float-right" href="{{ route('proveedors.create') }}">
                         Agregar proveedor
                     </a>
                 </div>
@@ -27,5 +27,4 @@
             @include('proveedors.table')
         </div>
     </div>
-
 @endsection

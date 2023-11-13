@@ -33,3 +33,4 @@ Route::get('/imprimir/proveedores', [App\Http\Controllers\imprimirPdfController:
 Route::get('/imprimir/clientes', [App\Http\Controllers\imprimirPdfController::class, 'imprimirClientes'])->name('imprimirClientes');
 Route::get('/imprimir/inventario', [App\Http\Controllers\imprimirPdfController::class, 'imprimirInventario'])->name('imprimirInventario');
 Route::get('/imprimir/ventas', [App\Http\Controllers\imprimirPdfController::class, 'imprimirVentas'])->name('imprimirVentas');
+Route::resource('cursos', App\Http\Controllers\cursoController::class);

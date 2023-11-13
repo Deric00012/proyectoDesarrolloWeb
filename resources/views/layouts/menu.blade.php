@@ -40,3 +40,10 @@
         <p>Ventas</p>
     </a>
 </li>
+
+{{-- <li class="nav-item">
+    <a href="{{ route('cursos.index') }}" class="nav-link {{ Request::is('cursos*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Cursos</p>
+    </a>
+</li> --}}
